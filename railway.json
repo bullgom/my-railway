@@ -4,6 +4,6 @@
         "builder": "NIXPACKS"
     },
     "deploy": {
-        "startCommand": "hypercorn app:app"
+        "startCommand": "hypercorn backend/app:app"
     }
 }
