@@ -1,7 +1,7 @@
 # Use the Python 3 alpine official image
 # https://hub.docker.com/_/python
 FROM python:3.11-alpine
-
+ENV PORT=8000
 # Create and change to the app directory.
 WORKDIR /app
 
@@ -12,4 +12,4 @@ COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Run the web service on container startup.
-CMD ["hypercorn", "main:app", "--bind", "0.0.0.0:${PORT:-8000}"]
+CMD ["/bin/sh", "-c", "hypercorn main:app --bind \"[::]:${PORT}\""]
