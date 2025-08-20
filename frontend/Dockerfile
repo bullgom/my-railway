@@ -5,6 +5,7 @@
 FROM node:20-alpine AS build
 
 ARG BACKEND_PORT=8000
+ARG FRONTEND_PORT=3000
 
 # Set the working directory in the container
 WORKDIR /app
@@ -41,7 +42,7 @@ COPY --from=build /app/dist .
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 to the outside world
-EXPOSE 80
+EXPOSE ${FRONTEND_PORT}
 
 # The Nginx image has a default command to start the server,
 # so we don't need to specify a CMD here.
