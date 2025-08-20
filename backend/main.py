@@ -6,7 +6,7 @@ import os
 
 app = FastAPI()
 
-frontend_url = "https://frontend-production-f068.up.railway.app"
+frontend_url = "https://frontend-production-e9f9.up.railway.app"
 origins = [
     frontend_url,
 ]
