@@ -1,7 +1,7 @@
 # Use the Python 3 alpine official image
 # https://hub.docker.com/_/python
 FROM python:3.11-alpine
-ENV PORT=8000
+ARG PORT=8000
 # Create and change to the app directory.
 WORKDIR /app
 
