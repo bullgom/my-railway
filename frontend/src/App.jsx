@@ -16,7 +16,7 @@ function App() {
       try {
         // Fetch data from the FastAPI endpoint
         // Make sure the URL matches your FastAPI server address
-        const url = `backend:${process.env.BACKEND_PORT || 8000}/`;
+        const url = `backend-production-dd86.up.railway.app:${process.env.BACKEND_PORT || 8000}/`;
         const response = await fetch(url);
         console.log(`Fetching data from: ${url}`);
 

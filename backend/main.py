@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 origins = [
-    "frontend",
+    "frontend-production-f068.up.railway.app",
 ]
 app.add_middleware(
     CORSMiddleware,
