@@ -28,6 +28,7 @@ function App() {
         const data = await response.json();
         // Assuming your FastAPI returns a JSON with a 'message' key
         setMessage(data.message);
+        console.log("Data fetched successfully:", data);
       } catch (e) {
         console.error("Fetch error: ", e);
         setError(e.message);
