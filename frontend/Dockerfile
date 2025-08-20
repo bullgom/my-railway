@@ -4,6 +4,8 @@
 # This stage builds the Vite application and creates the static files.
 FROM node:20-alpine AS build
 
+ARG BACKEND_PORT=8000
+
 # Set the working directory in the container
 WORKDIR /app
 
