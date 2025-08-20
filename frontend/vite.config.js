@@ -12,6 +12,6 @@ export default defineConfig({
     assetsInlineLimit: 0, // Disable inlining of assets
   },
   server: {
-    port: `${process.env.PORT || 3000}`, // Use PORT from environment variables or default to 3000
+    port: `${process.env.FRONTEND_PORT || 3000}`, // Use PORT from environment variables or default to 3000
   }
 })
