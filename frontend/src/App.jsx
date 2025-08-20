@@ -37,7 +37,7 @@ function App() {
     // Call the function
     fetchData();
   }, []); // The empty array [] means this effect runs only once after the initial render
-  console.log(process.env.BACKEND_PORT);
+  console.log("port", process.env.PORT);
   return (
     <>
       <div>
