@@ -16,7 +16,9 @@ function App() {
       try {
         // Fetch data from the FastAPI endpoint
         // Make sure the URL matches your FastAPI server address
-        const response = await fetch('backend/');
+        const url = `http://backend:${process.env.BACKEND_PORT || 8000}/`;
+        const response = await fetch(url);
+        console.log(`Fetching data from: ${url}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
