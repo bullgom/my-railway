@@ -16,7 +16,8 @@ function App() {
       try {
         // Fetch data from the FastAPI endpoint
         // Make sure the URL matches your FastAPI server address
-        const url = `backend-production-dd86.up.railway.app:${process.env.BACKEND_PORT || 8000}/`;
+        // this should be changed to ENV
+        const url = `https://backend-production-dd86.up.railway.app/`;
         const response = await fetch(url);
         console.log(`Fetching data from: ${url}`);
 
@@ -36,7 +37,7 @@ function App() {
     // Call the function
     fetchData();
   }, []); // The empty array [] means this effect runs only once after the initial render
-
+  console.log(process.env.BACKEND_PORT);
   return (
     <>
       <div>

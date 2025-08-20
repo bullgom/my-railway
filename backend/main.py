@@ -2,11 +2,13 @@ from typing import Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 app = FastAPI()
 
+frontend_url = "https://frontend-production-f068.up.railway.app"
 origins = [
-    "frontend-production-f068.up.railway.app",
+    frontend_url,
 ]
 app.add_middleware(
     CORSMiddleware,
