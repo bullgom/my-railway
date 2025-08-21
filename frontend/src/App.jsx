@@ -41,6 +41,7 @@ function App() {
   }, []); // The empty array [] means this effect runs only once after the initial render
   
   console.log(message)
+  console.log(error)
   return (
     <>
       <div>
