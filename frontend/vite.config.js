@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
         usePolling: true, // Use polling for file watching
 
       },
-      allowedHosts: ['localhost', env.FRONTEND_URL]
+      allowedHosts: ['localhost', process.env.FRONTEND_URL]
     },
   };
 });
