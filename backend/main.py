@@ -2,10 +2,12 @@ from typing import Union
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from constants import BACKEND_URL, FRONTEND_URL, BACKEND_PORT, FRONTEND_PORT
+
 
 app = FastAPI()
 
-frontend_url = "https://frontend-production-e9f9.up.railway.app"
+frontend_url = f"{FRONTEND_URL}:{FRONTEND_PORT}"
 origins = [
     frontend_url,
 ]
