@@ -10,6 +10,9 @@ function App() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 
+  const url = `${import.meta.env.BACKEND_URL}:${import.meta.env.BACKEND_PORT}/`;
+  console.log(`Fetching data from: ${url}`);
+
   useEffect(() => {
     // Define the function to fetch data
     const fetchData = async () => {
@@ -17,9 +20,7 @@ function App() {
         // Fetch data from the FastAPI endpoint
         // Make sure the URL matches your FastAPI server address
         // this should be changed to ENV
-        const url = `https://backend-production-dd86.up.railway.app/`;
         const response = await fetch(url);
-        console.log(`Fetching data from: ${url}`);
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
@@ -38,7 +39,7 @@ function App() {
     // Call the function
     fetchData();
   }, []); // The empty array [] means this effect runs only once after the initial render
-  console.log("port", process.env.PORT);
+  console.log("port", import.meta.env.FRONTEND_PORT);
   return (
     <>
       <div>

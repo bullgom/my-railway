@@ -2,7 +2,9 @@
 
 # ---- Stage 1: Build ----
 # This stage builds the Vite application and creates the static files.
-FROM node:20-alpine AS build
+FROM node:20-alpine
+ENV FRONTEND_PORT=3000
+ENV FRONTEND_STAGE=dev
 
 # Set the working directory in the container
 WORKDIR /app
@@ -17,29 +19,11 @@ RUN npm ci
 # Copy the rest of the application source code
 COPY . .
 
-# Build the application
-# This command runs the "build" script defined in your package.json
-RUN npm run build
+RUN echo ${FRONTEND_PORT}
 
-# ---- Stage 2: Production ----
-# This stage sets up a lightweight Nginx server to serve the built files.
-FROM nginx:stable-alpine AS production
-
-# Set the working directory for Nginx
-WORKDIR /usr/share/nginx/html
-
-# Remove the default Nginx welcome page
-RUN rm -f ./*
-
-# Copy the built files from the 'build' stage
-COPY --from=build /app/dist .
-
-# Copy the custom Nginx configuration
-# This file ensures that routing is handled correctly for a Single Page Application (SPA)
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Expose port 80 to the outside world
-EXPOSE 80
-
-# The Nginx image has a default command to start the server,
-# so we don't need to specify a CMD here.
+# dynamically create bash script to run the correct command
+CMD ["/bin/sh", "-c", "if [ \"${FRONTEND_STAGE}\" = \"prod\" ]; then \
+    npm run build; \
+    else \
+    npm run dev -- --port ${FRONTEND_PORT} --host; \
+    fi"]
