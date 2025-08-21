@@ -39,7 +39,8 @@ function App() {
     // Call the function
     fetchData();
   }, []); // The empty array [] means this effect runs only once after the initial render
-  console.log("port", import.meta.env.FRONTEND_PORT);
+  
+  console.log(message)
   return (
     <>
       <div>
