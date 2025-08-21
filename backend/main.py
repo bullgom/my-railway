@@ -7,7 +7,7 @@ from constants import BACKEND_URL, FRONTEND_URL, BACKEND_PORT, FRONTEND_PORT
 
 app = FastAPI()
 
-frontend_url = f"{FRONTEND_URL}:{FRONTEND_PORT}"
+frontend_url = f"https://{FRONTEND_URL}:{FRONTEND_PORT}"
 origins = [
     frontend_url,
 ]
