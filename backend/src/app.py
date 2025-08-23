@@ -32,9 +32,11 @@ def read_item(item_id: int, q: Union[str, None] = None):
 
 
 @app.post("/hero/")
-def create_hero(hero: Hero) -> None:
+def create_hero(hero: Hero) -> Hero:
     with Session(engine) as session:
         session.add(hero)
         session.commit()
+        session.flush()
         session.refresh(hero)
-    return
+    print("Done")
+    return hero

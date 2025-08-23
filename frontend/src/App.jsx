@@ -29,7 +29,7 @@ function App() {
                 const data = await response.json();
                 // Assuming your FastAPI returns a JSON with a 'message' key
                 setMessage(data.message);
-                console.log("Data fetched successfully:", data.message);
+                console.log("Data fetched successfully:", data);
 
             } catch (e) {
                 console.error("Fetch error: ", e);
@@ -68,12 +68,11 @@ function App() {
         };
         postData();
     }, []); // The empty array [] means this effect runs only once after the initial render
-    console.log(postMessage)
-    console.log(message)
-    console.log(error)
+
     return (
         <>
             <div>
+                Hello My Kokokoko
                 <a href="https://vite.dev" target="_blank">
                     <img src={viteLogo} className="logo" alt="Vite logo" />
                 </a>
