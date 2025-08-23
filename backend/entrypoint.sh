@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 if [ "${STAGE}" == "prod" ]; then
     echo "Running in production mode..."
     # Execute production-specific commands
