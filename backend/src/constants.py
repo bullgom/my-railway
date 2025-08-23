@@ -9,5 +9,4 @@ FRONTEND_PORT = int(os.getenv("FRONTEND_PORT", 3000))
 if STAGE == "dev":
     POSTGRES_URL = os.getenv("POSTGRES_DEV_URL", "postgresql://user:password@localhost/dbname")
 else:
-    raise NotImplementedError
-    POSTGRES_URL = os.getenv("POSTGRES_URL", "postgresql://user:password@localhost/dbname")
+    POSTGRES_URL = os.getenv("POSTGRES_DEV_URL", "postgresql://user:password@localhost/dbname")
