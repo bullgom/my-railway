@@ -19,7 +19,7 @@ RUN npm ci
 # Copy the rest of the application source code
 COPY . .
 
-RUN echo ${FRONTEND_PORT}
+RUN npm install -g serve # to serve the built frontend in production
 
 # dynamically create bash script to run the correct command
 RUN chmod +x ./entrypoint.sh
