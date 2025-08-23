@@ -1,3 +1,13 @@
 {
-    "python.analysis.typeCheckingMode": "basic"
+    "python.analysis.typeCheckingMode": "basic",
+    
+    "terminal.integrated.env.linux": {
+        "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+    },
+    "terminal.integrated.env.osx": {
+        "PYTHONPATH": "${workspaceFolder}/src:${env:PYTHONPATH}"
+    },
+    "files.exclude": {
+        "**/__pycache__": true,
+    }
 }

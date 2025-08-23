@@ -24,4 +24,5 @@ services:
       - .env
     volumes:
       - ./backend/:/app
-  
+    environment:
+      - CHOKIDAR_USEPOLLING=true

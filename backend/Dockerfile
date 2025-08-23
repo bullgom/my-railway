@@ -2,6 +2,8 @@
 # https://hub.docker.com/_/python
 FROM python:3.11-alpine
 ENV BACKEND_PORT=8080
+ENV PYTHONPATH="/app/src:${PYTHONPATH}"
+RUN echo ${PYTHONPATH}
 
 # Create and change to the app directory.
 WORKDIR /app
