@@ -2,7 +2,7 @@
 
 # ---- Stage 1: Build ----
 # This stage builds the Vite application and creates the static files.
-FROM node:20-alpine
+FROM node:20
 ENV FRONTEND_PORT=3000
 ENV FRONTEND_STAGE=dev
 
@@ -22,8 +22,5 @@ COPY . .
 RUN echo ${FRONTEND_PORT}
 
 # dynamically create bash script to run the correct command
-CMD ["/bin/sh", "-c", "if [ \"${FRONTEND_STAGE}\" = \"prod\" ]; then \
-    npm run build; \
-    else \
-    npm run dev -- --port ${FRONTEND_PORT} --host; \
-    fi"]
+RUN chmod +x ./entrypoint.sh
+CMD ["./entrypoint.sh"] 
