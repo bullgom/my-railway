@@ -5,7 +5,7 @@ import svgr from 'vite-plugin-svgr'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
 
-  const env = loadEnv(mode, process.cwd());
+  const url_withtout_protocol = process.env.FRONTEND_URL.replace(/^(https?:\/\/)/, '');
   return {
     plugins: [react()],
     build: {
@@ -21,7 +21,7 @@ export default defineConfig(({ mode }) => {
         usePolling: true, // Use polling for file watching
 
       },
-      allowedHosts: ['localhost', process.env.FRONTEND_URL]
+      allowedHosts: ['localhost', url_withtout_protocol]
     },
   };
 });
