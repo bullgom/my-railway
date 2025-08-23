@@ -10,7 +10,7 @@ function App() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(null);
 
-  const url = `https://${import.meta.env.BACKEND_URL}/`;
+  const url = `https://${import.meta.env.BACKEND_URL}:${import.meta.env.BACKEND_PORT}/`;
   console.log(`Fetching data from: ${url}`);
 
   useEffect(() => {
