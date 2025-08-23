@@ -1,5 +1,5 @@
 from sqlmodel import Field, SQLModel, create_engine
-from constants import PORTGRES_URL
+from constants import POSTGRES_URL
 
 
 class Hero(SQLModel, table=True):
@@ -9,6 +9,6 @@ class Hero(SQLModel, table=True):
     age: int | None = None
 
 
-engine = create_engine(PORTGRES_URL, echo=True)
+engine = create_engine(POSTGRES_URL, echo=True)
 
 SQLModel.metadata.create_all(engine)

@@ -3,7 +3,8 @@ from typing import Union
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from constants import BACKEND_URL, FRONTEND_URL, BACKEND_PORT, FRONTEND_PORT
-
+from db import Hero, engine
+from sqlmodel import Session
 
 app = FastAPI()
 
@@ -28,3 +29,12 @@ def read_root():
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
+
+
+@app.post("/hero/")
+def create_hero(hero: Hero) -> None:
+    with Session(engine) as session:
+        session.add(hero)
+        session.commit()
+        session.refresh(hero)
+    return
