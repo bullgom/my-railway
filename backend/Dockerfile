@@ -21,4 +21,4 @@ COPY . .
 # Run the web service on container startup.
 # if production, use hypercorn else just run bash
 RUN chmod +x ./entrypoint.sh
-CMD ["./entrypoint.sh"]
+CMD ["./entrypoint.sh"] 
